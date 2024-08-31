@@ -1,0 +1,14 @@
+[package]
+name = "magnetise"
+version = "0.0.1"
+edition = "2021"
+description = "A Rust library to asses the similarity between SQL queries."
+authors = ["IteraLabs.ai <contact@iteralabs.ai>"]
+license = "Apache-2.0"
+repository = "https://github.com/iteralabs/magnetise"
+keywords = ["sql", "postgresql", "data-engineering", "similarity"]
+categories = ["data-structures", "development-tools"]
+
+[dependencies]
+criterion = "0.5.0"  # for benchmarking
+regex = "1.10.6"
