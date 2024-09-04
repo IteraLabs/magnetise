@@ -1,6 +1,6 @@
 [package]
 name = "magnetise"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "A Rust library to asses the similarity between SQL queries."
 authors = ["IteraLabs.ai <contact@iteralabs.ai>"]
