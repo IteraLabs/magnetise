@@ -1,4 +1,4 @@
-//! This crate provides a function to calculate the Jaccard similarity between two queries.
+//! A Rust library to asses the similarity between SQL queries.
 
 use regex::Regex;
 use std::collections::HashSet;
@@ -26,7 +26,7 @@ use std::collections::HashSet;
 /// assert_eq!(tokens, ["SELECT", "WHERE", "FROM", "users", "age"].iter().cloned().collect());
 /// ```
 
-fn itemize_query(query: &str, pattern: &str) -> HashSet<String> {
+pub fn itemize_query(query: &str, pattern: &str) -> HashSet<String> {
     let re = Regex::new(pattern).unwrap();
     re.find_iter(query)
         .map(|matched| matched.as_str().to_uppercase())
