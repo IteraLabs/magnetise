@@ -18,12 +18,15 @@ use std::collections::HashSet;
 ///
 /// ```rust
 /// use std::collections::HashSet;
-/// use jaccard_similarity::itemize_query;
+/// use magnetise::itemize_query;
 ///
 /// let query = "SELECT * FROM users WHERE age > 30";
 /// let pattern = r"\b(SELECT|WHERE|FROM|AND|OR)\B|\w+";
-/// let tokens: HashSet<_> = itemize_query(query, pattern);
-/// assert_eq!(tokens, ["SELECT", "WHERE", "FROM", "users", "age"].iter().cloned().collect());
+/// let tokens: HashSet<_> = itemize_query(query, pattern).into_iter().collect();
+///
+/// let expected_tokens: HashSet<String> = vec![
+///    "SELECT", "FROM", "USERS", "WHERE", "AGE", "30"].iter().map(|&s| s.to_string()).collect();
+/// assert_eq!(tokens, expected_tokens);
 /// ```
 
 pub fn itemize_query(query: &str, pattern: &str) -> HashSet<String> {
@@ -50,7 +53,7 @@ pub fn itemize_query(query: &str, pattern: &str) -> HashSet<String> {
 /// # Examples
 ///
 /// ```rust
-/// use jaccard_similarity::jaccard_similarity;
+/// use magnetise::jaccard_similarity;
 ///
 /// let query1 = "SELECT * FROM users WHERE age > 30";
 /// let query2 = "SELECT * FROM users WHERE age > 31";
